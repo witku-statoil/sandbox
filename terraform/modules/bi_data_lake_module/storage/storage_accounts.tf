@@ -365,3 +365,30 @@ resource "azurerm_storage_container" "dwh" {
 	container_access_type = "private"
 }
 
+# Public Zone - predominantly for sharing | exposing static content needed for e.g. Power BI
+resource "azurerm_storage_account" "public" {
+	name                		= "${var.bi_env_prefix}publicshare001${var.bi_env_suffix}"
+	resource_group_name 		= azurerm_resource_group.bi_rg_prm.name
+	location             		= azurerm_resource_group.bi_rg_prm.location 
+	
+	account_kind 				= "StorageV2"
+	account_tier         		= "Standard"
+	account_replication_type 	= "LRS"
+	access_tier					= "Hot"
+	enable_https_traffic_only  	= "true"
+	is_hns_enabled 				= "false"
+	
+	blob_properties {
+		delete_retention_policy {
+			days = "30"
+		}
+	}
+
+	tags = merge(map("Comments", "Data Lake Public Share mostly for PowerBI usage."), var.tags)
+}
+
+resource "azurerm_storage_container" "powerbi-res" {
+	name = "powerbi-res"
+	storage_account_name  = azurerm_storage_account.public.name
+	container_access_type = "public"
+}
