@@ -1,0 +1,1 @@
+# Creates all accounts for Data Lake Zones
