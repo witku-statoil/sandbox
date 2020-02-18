@@ -35,11 +35,11 @@ resource "azurerm_storage_account" "landing" {
 
 	# Updates not supported by terraform provider
 	provisioner "local-exec" {
-		command = "./storage_update_logs_settings.sh ${var.subscription_id} ${self.resource_group_name} ${self.name} 60"
+		command = "/home/witku/github/sandbox/terraform/modules/bi_data_lake_module/storage/storage_update_logs_settings.sh ${var.subscription_id} ${self.resource_group_name} ${self.name} 60"
 	}
 
 	provisioner "local-exec" {
-			command = "./storage_update_policy_delete_60_days.sh ${var.subscription_id} ${self.resource_group_name} ${self.name}"
+			command = "/home/witku/github/sandbox/terraform/modules/bi_data_lake_module/storage/storage_update_policy_delete_60_days.sh ${var.subscription_id} ${self.resource_group_name} ${self.name}"
 	}
 }
 
@@ -104,11 +104,11 @@ resource "azurerm_storage_account" "archive" {
 	
 	# Updates not supported by terraform provider
 	provisioner "local-exec" {
-		command = "./storage_update_logs_settings.sh ${var.subscription_id} ${self.resource_group_name} ${self.name} 60"
+		command = "/home/witku/github/sandbox/terraform/modules/bi_data_lake_module/storage/storage_update_logs_settings.sh ${var.subscription_id} ${self.resource_group_name} ${self.name} 60"
 	}
 
 	provisioner "local-exec" {
-			command = "./storage_update_policy_cold_360_days.sh ${var.subscription_id} ${self.resource_group_name} ${self.name}"
+			command = "/home/witku/github/sandbox/terraform/modules/bi_data_lake_module/storage/storage_update_policy_cold_360_days.sh ${var.subscription_id} ${self.resource_group_name} ${self.name}"
 	}
 }
 
@@ -157,12 +157,12 @@ resource "azurerm_storage_account" "curated" {
 	
 	# Updates not supported by terraform provider
 	provisioner "local-exec" {
-		command = "./storage_update_logs_settings.sh ${var.subscription_id} ${self.resource_group_name} ${self.name} 60"
+		command = "/home/witku/github/sandbox/terraform/modules/bi_data_lake_module/storage/storage_update_logs_settings.sh ${var.subscription_id} ${self.resource_group_name} ${self.name} 60"
 	}
 
 	# Lifecycle Management not yet supported on ADLS2
 	#provisioner "local-exec" {
-	#		command = "./storage_update_policy_cold_360_days.sh ${var.subscription_id} ${self.resource_group_name} ${self.name}"
+	#		command = "/home/witku/github/sandbox/terraform/modules/bi_data_lake_module/storage/storage_update_policy_cold_360_days.sh ${var.subscription_id} ${self.resource_group_name} ${self.name}"
 	#}
 }
 
@@ -216,7 +216,7 @@ resource "azurerm_storage_account" "datascience" {
 	
 	# Updates not supported by terraform provider
 	provisioner "local-exec" {
-		command = "./storage_update_logs_settings.sh ${var.subscription_id} ${self.resource_group_name} ${self.name} 60"
+		command = "/home/witku/github/sandbox/terraform/modules/bi_data_lake_module/storage/storage_update_logs_settings.sh ${var.subscription_id} ${self.resource_group_name} ${self.name} 60"
 	}
 
 }
@@ -239,7 +239,7 @@ resource "azurerm_storage_account" "logs" {
 	
 	# Updates not supported by terraform provider
 	provisioner "local-exec" {
-		command = "./storage_update_logs_settings.sh ${var.subscription_id} ${self.resource_group_name} ${self.name} 60"
+		command = "/home/witku/github/sandbox/terraform/modules/bi_data_lake_module/storage/storage_update_logs_settings.sh ${var.subscription_id} ${self.resource_group_name} ${self.name} 60"
 	}
 
 }
@@ -268,11 +268,11 @@ resource "azurerm_storage_account" "backup" {
 	
 	# Updates not supported by terraform provider
 	provisioner "local-exec" {
-		command = "./storage_update_logs_settings.sh ${var.subscription_id} ${self.resource_group_name} ${self.name} 60"
+		command = "/home/witku/github/sandbox/terraform/modules/bi_data_lake_module/storage/storage_update_logs_settings.sh ${var.subscription_id} ${self.resource_group_name} ${self.name} 60"
 	}
 
 	provisioner "local-exec" {
-			command = "./storage_update_policy_cold_360_days.sh ${var.subscription_id} ${self.resource_group_name} ${self.name}"
+			command = "/home/witku/github/sandbox/terraform/modules/bi_data_lake_module/storage/storage_update_policy_cold_360_days.sh ${var.subscription_id} ${self.resource_group_name} ${self.name}"
 	}
 }
 
@@ -318,11 +318,11 @@ resource "azurerm_storage_account" "vendors" {
 	
 	# Updates not supported by terraform provider
 	provisioner "local-exec" {
-		command = "./storage_update_logs_settings.sh ${var.subscription_id} ${self.resource_group_name} ${self.name} 60"
+		command = "/home/witku/github/sandbox/terraform/modules/bi_data_lake_module/storage/storage_update_logs_settings.sh ${var.subscription_id} ${self.resource_group_name} ${self.name} 60"
 	}
 
 	provisioner "local-exec" {
-			command = "./storage_update_policy_delete_60_days.sh ${var.subscription_id} ${self.resource_group_name} ${self.name}"
+			command = "/home/witku/github/sandbox/terraform/modules/bi_data_lake_module/storage/storage_update_policy_delete_60_days.sh ${var.subscription_id} ${self.resource_group_name} ${self.name}"
 	}
 }
 
@@ -344,11 +344,11 @@ resource "azurerm_storage_account" "temp" {
 
 	# Updates not supported by terraform provider
 	provisioner "local-exec" {
-		command = "./storage_update_logs_settings.sh ${var.subscription_id} ${self.resource_group_name} ${self.name} 60"
+		command = "/home/witku/github/sandbox/terraform/modules/bi_data_lake_module/storage/storage_update_logs_settings.sh ${var.subscription_id} ${self.resource_group_name} ${self.name} 60"
 	}
 
 	provisioner "local-exec" {
-			command = "./storage_update_policy_delete_60_days.sh ${var.subscription_id} ${self.resource_group_name} ${self.name}"
+			command = "/home/witku/github/sandbox/terraform/modules/bi_data_lake_module/storage/storage_update_policy_delete_60_days.sh ${var.subscription_id} ${self.resource_group_name} ${self.name}"
 	}
 }
 

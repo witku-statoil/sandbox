@@ -15,7 +15,8 @@ resource "azurerm_resource_group" "bi_rg_prm" {
 resource "azurerm_databricks_workspace" "etl" {
 	name                	= "${var.bi_env_prefix}etldbcks001${var.bi_env_suffix}"
 	resource_group_name 	= azurerm_resource_group.bi_rg_prm.name
-	location             	= azurerm_resource_group.bi_rg_prm.location 
+	managed_resource_group_name = "${azurerm_resource_group.bi_rg_prm.name}-etl-databricks"
+	location             	= azurerm_resource_group.bi_rg_prm.location
 	sku						= "premium"
 	tags = merge(map("Comments", "ETL Databricks Workspace"), var.tags)
 }
@@ -23,6 +24,7 @@ resource "azurerm_databricks_workspace" "etl" {
 resource "azurerm_databricks_workspace" "datascience" {
 	name                	= "${var.bi_env_prefix}datascncdbcks001${var.bi_env_suffix}"
 	resource_group_name 	= azurerm_resource_group.bi_rg_prm.name
+	managed_resource_group_name = "${azurerm_resource_group.bi_rg_prm.name}-datascience-databricks"	
 	location             	= azurerm_resource_group.bi_rg_prm.location 
 	sku						= "premium"
 	tags = merge(map("Comments", "Data Science Sandbox Databricks Workspace"), var.tags)
