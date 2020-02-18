@@ -390,5 +390,5 @@ resource "azurerm_storage_account" "public" {
 resource "azurerm_storage_container" "powerbi-res" {
 	name = "powerbi-res"
 	storage_account_name  = azurerm_storage_account.public.name
-	container_access_type = "public"
+	container_access_type = "container"
 }
