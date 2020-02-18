@@ -83,7 +83,7 @@ module "dl_key_vaults" {
   bi_location_scnd                  = var.bi_location_scnd
   tags                              = var.tags
   
-  depends_on = module.dl_storage
+  #depends_on = module.dl_storage
 }
 
 # VM (1 VM hosting SQL Server, MDS, Power BI Gateway and Azure Data Factory Integration Runtime)
