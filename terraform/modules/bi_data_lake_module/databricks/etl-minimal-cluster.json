@@ -1,0 +1,34 @@
+{
+    "autoscale": {
+        "min_workers": 1,
+        "max_workers": 4
+    },
+    "cluster_name": "ETL_Minimal_Cluster",
+    "spark_version": "6.2.x-scala2.11",
+    "spark_conf": {
+        "spark.databricks.delta.preview.enabled": "true",
+        "spark.databricks.io.cache.maxMetaDataCache": "1g",
+        "spark.databricks.io.cache.maxDiskUsage": "50g",
+        "spark.databricks.io.cache.compression.enabled": "false",
+        "spark.databricks.io.cache.enabled": "true"	
+    },
+    "node_type_id": "Standard_DS3_v2",
+    "driver_node_type_id": "Standard_DS3_v2",
+    "ssh_public_keys": [],
+    "custom_tags": {
+        "Project": "BI Data Lake",
+        "Environment": "Development",
+        "Owner": "BI",
+		"Comments": "Standard ETL Databricks cluster."			
+    },
+    "cluster_log_conf": {
+        "dbfs": {
+            "destination": "dbfs:/cluster-logs"
+        }
+    },
+    "spark_env_vars": {},
+    "autotermination_minutes": 30,
+    "enable_elastic_disk": true,
+    "cluster_source": "UI",
+    "init_scripts": []
+}

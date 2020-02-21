@@ -1,0 +1,37 @@
+{
+    "autoscale": {
+        "min_workers": 1,
+        "max_workers": 15
+    },
+    "cluster_name": "Interactive_Query_High_Concurrency_Cluster",
+    "spark_version": "6.2.x-scala2.11",
+    "spark_conf": {
+        "spark.databricks.cluster.profile": "serverless",
+        "spark.databricks.io.cache.maxMetaDataCache": "1g",
+        "spark.databricks.io.cache.maxDiskUsage": "50g",
+        "spark.databricks.delta.preview.enabled": "true",
+        "spark.databricks.io.cache.compression.enabled": "false",
+        "spark.databricks.io.cache.enabled": "true",
+        "spark.databricks.repl.allowedLanguages": "sql,python,r"
+    },
+    "node_type_id": "Standard_D13_v2",
+    "driver_node_type_id": "Standard_D13_v2",
+    "ssh_public_keys": [],
+    "custom_tags": {
+        "ResourceClass": "Serverless",
+        "Project": "BI Data Lake",
+        "Environment": "Development",
+        "Owner": "BI",
+		"Comments": "Interactive query Databricks cluster."				
+    },
+    "cluster_log_conf": {
+        "dbfs": {
+            "destination": "dbfs:/cluster-logs"
+        }
+    },
+    "spark_env_vars": {},
+    "autotermination_minutes": 60,
+    "enable_elastic_disk": true,
+    "cluster_source": "UI",
+    "init_scripts": []
+}

@@ -34,3 +34,7 @@ resource "azurerm_key_vault" "datascience_key_vault" {
 
 	tags = merge(map("Comments", "Data Science Sandbox Key Vault used by Databricks."), var.tags)
 }
+
+# Default secrets for ETL Key Vault
+
+# Default secrets for Data Science Key Vault

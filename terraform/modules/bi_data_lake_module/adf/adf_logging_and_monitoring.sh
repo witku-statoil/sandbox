@@ -1,0 +1,1 @@
+# No az command, must be done from PowerShell or via ARM

@@ -29,7 +29,7 @@ Environment consits of:
 - Data Science workspace
 
 *Limitations:*
-- Tokens must be setup manually
+- Tokens and SCIM integration with Azure AD must be setup manually
 - Add default cluster configuration (using databricks cli)
 - ACLS cannot be applied programatically, even using cli
 - Setup key-valuts and storage mappings (databricks cli)

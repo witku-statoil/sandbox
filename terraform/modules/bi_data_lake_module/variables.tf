@@ -8,6 +8,12 @@ variable "tenant_id" {
 	default     = "deb87405-c3fd-48f8-af81-65ca6d8d8e57"
 }
 
+variable "bi_env_code" {
+	description = "Environment code - PROD for Production, TEST, DEV for development, SBOX for Sandbox.
+	Value used for looking up environment specific object such as Azure AD Groups etc."
+	default     = "SBOX"
+}
+
 variable "bi_env_prefix" {
 	description = "The prefix used for all resources. Azure resource names are global so perfix should include circlek reference. Needs to be a short alphanumeric string. Example: `myprefix`. (circlekeubi, crkeubi)"
 	default     = "circlekeubi"
