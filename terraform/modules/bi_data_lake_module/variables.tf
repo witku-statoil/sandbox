@@ -9,8 +9,7 @@ variable "tenant_id" {
 }
 
 variable "bi_env_code" {
-	description = "Environment code - PROD for Production, TEST, DEV for development, SBOX for Sandbox.
-	Value used for looking up environment specific object such as Azure AD Groups etc."
+	description = "Environment code - PROD for Production, TEST, DEV for development, SBOX for Sandbox. Value used for looking up environment specific object such as Azure AD Groups etc."
 	default     = "SBOX"
 }
 

@@ -51,42 +51,60 @@ Environment consits of:
 
 Module structure:
 ```
-bi_data_lake_module/
-├── adf
-│   ├── README.md
-│   ├── main.tf
-│   └── variables.tf
-├── databricks
-│   ├── README.md
-│   ├── main.tf
-│   └── variables.tf
-├── key_vault
-│   ├── README.md
-│   ├── main.tf
-│   └── variables.tf
-├── sql
-│   ├── README.md
-│   ├── main.tf
-│   └── variables.tf
-├── ssas
-│   ├── README.md
-│   ├── main.tf
-│   └── variables.tf
-├── storage
-│   ├── README.md
-│   ├── main.tf
-│   ├── outputs.tf
-│   ├── storage_update_logs_settings.sh
-│   ├── storage_update_policy_cold_360_days.sh
-│   ├── storage_update_policy_delete_60_days.sh
-│   └── variables.tf
-├── vm
-│   ├── README.md
-│   ├── main.tf
-│   └── variables.tf
-├── README.md
-├── main.tf
-├── outputs.tf
-└── variables.tf
+.
+├── modules
+│   └── bi_data_lake_module
+│       ├── adf
+│       │   ├── README.md
+│       │   ├── adf_logging_and_monitoring.sh
+│       │   ├── main.tf
+│       │   └── variables.tf
+│       ├── databricks
+│       │   ├── README.md
+│       │   ├── data-science-interactive-cluster.json
+│       │   ├── databricks_create_clusters.sh
+│       │   ├── databricks_init.sh
+│       │   ├── databricks_logging_and_monitoring.sh
+│       │   ├── etl-minimal-cluster.json
+│       │   ├── main.tf
+│       │   └── variables.tf
+│       ├── key_vault
+│       │   ├── README.md
+│       │   ├── main.tf
+│       │   └── variables.tf
+│       ├── sql
+│       │   ├── README.md
+│       │   ├── main.tf
+│       │   ├── sql_logging_and_monitoring.sh
+│       │   └── variables.tf
+│       ├── ssas
+│       │   ├── README.md
+│       │   ├── main.tf
+│       │   ├── ssas_logging_and_monitoring.sh
+│       │   └── variables.tf
+│       ├── storage
+│       │   ├── README.md
+│       │   ├── main.tf
+│       │   ├── outputs.tf
+│       │   ├── storage_update_logs_settings.sh
+│       │   ├── storage_update_policy_cold_360_days.sh
+│       │   ├── storage_update_policy_delete_60_days.sh
+│       │   └── variables.tf
+│       ├── vm
+│       │   ├── README.md
+│       │   ├── main.tf
+│       │   └── variables.tf
+│       ├── README.md
+│       ├── main.tf
+│       ├── outputs.tf
+│       └── variables.tf
+└── subscriptions
+    └── eur-bi-sandbox
+        ├── README.md
+        ├── main.tf
+        ├── outputs.tf
+        ├── terraform.tfstate
+        ├── terraform.tfstate.backup
+        └── variables.tf
 
 ```
