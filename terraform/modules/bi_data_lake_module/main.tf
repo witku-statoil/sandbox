@@ -29,7 +29,7 @@ module "dl_storage" {
 # DWH & SQL Instance (1 each by default)
 module "dl_sql" {
   source                            = "./sql"
-  subscription_id					          = var.subscription_id
+  subscription_id					= var.subscription_id
   tenant_id                         = var.tenant_id
   bi_env_prefix                     = var.bi_env_prefix
   bi_env_suffix                     = var.bi_env_suffix
@@ -71,7 +71,7 @@ module "dl_ssas" {
 # Azure Data Factory (1 by default)
 module "dl_adf" {
   source                            = "./adf"
-  subscription_id					          = var.subscription_id
+  subscription_id					= var.subscription_id
   tenant_id                         = var.tenant_id
   bi_env_prefix                     = var.bi_env_prefix
   bi_env_suffix                     = var.bi_env_suffix
@@ -85,7 +85,7 @@ module "dl_adf" {
 # Key Vaults (2, including initial secrets setup)
 module "dl_key_vaults" {
   source                            = "./key_vault"
-  subscription_id					          = var.subscription_id
+  subscription_id					= var.subscription_id
   tenant_id                         = var.tenant_id
   bi_env_prefix                     = var.bi_env_prefix
   bi_env_suffix                     = var.bi_env_suffix

@@ -30,7 +30,7 @@ resource "azurerm_sql_database" "dwh" {
 	location             			= azurerm_resource_group.bi_rg_prm.location 
 	server_name						= azurerm_sql_server.sqlsrvr.name
 	edition 						= "DataWarehouse"
-	collation 						= "SQL_LATIN1_GENERAL_CP1_CS_AS"
+	collation 						= "SQL_Latin1_General_CP1_CI_AS"
 	requested_service_objective_name= "DW100c"
 	tags 							= merge(map("Comments", "Data Warehouse"), var.tags)
 }
@@ -41,7 +41,7 @@ resource "azurerm_sql_database" "configdb" {
 	location             			= azurerm_resource_group.bi_rg_prm.location 
 	server_name						= azurerm_sql_server.sqlsrvr.name
 	edition 						= "Basic"
-	collation 						= "SQL_LATIN1_GENERAL_CP1_CS_AS"
+	collation 						= "SQL_Latin1_General_CP1_CI_AS"
 	requested_service_objective_name= "Basic"
-	tags 							= merge(map("Comments", "Config and loggin DB"), var.tags)
+	tags 							= merge(map("Comments", "Config and logging DB"), var.tags)
 }
