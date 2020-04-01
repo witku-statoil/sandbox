@@ -10,7 +10,7 @@ variable "tenant_id" {
 
 variable "bi_env_prefix" {
 	description = "The prefix used for all resources. Azure resource names are global so perfix should include circlek reference. Needs to be a short alphanumeric string. Example: `myprefix`. (circlekeubi, crkeubi)"
-	default     = "circlekeubi"
+	default     = "crkeubi"
 }
 
 variable "bi_env_suffix" {
