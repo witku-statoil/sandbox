@@ -20,12 +20,12 @@ variable "bi_env_suffix" {
 
 variable "bi_resource_group_prm" {
 	description = "Primary resource group name where all BI resources will be created - mapped to Default Region."
-	default     = "na-bi-dev-usc-rg"
+	default     = "na-bi-dev-use2-rg"
 }
 
 variable "bi_resource_group_scnd" {
 	description = "Secondary resource group name - mapped to paired Azure Region"
-	default     = "na-bi-dev-use2-rg"
+	default     = "na-bi-dev-usc-rg"
 }
 
 variable "bi_location_prm" {
