@@ -7,15 +7,15 @@ provider "azurerm" {
 }
 
 # Load from variables.tf
-resource "azurerm_resource_group" "bi_rg_prm" {
+data "azurerm_resource_group" "bi_rg_prm" {
 	name     = var.bi_resource_group_prm
-	location = var.bi_location_prm
-	tags = var.tags
+	#location = var.bi_location_prm
+	#tags = var.tags
 }
 
 resource "azurerm_data_factory" "etladf"  {
 	name                	= "${var.bi_env_prefix}etladf001${var.bi_env_suffix}"
-	resource_group_name 	= azurerm_resource_group.bi_rg_prm.name
-	location             	= azurerm_resource_group.bi_rg_prm.location 
+	resource_group_name 	= data.azurerm_resource_group.bi_rg_prm.name
+	location             	= data.azurerm_resource_group.bi_rg_prm.location 
 	tags = merge(map("Comments", "Primary ETL Azure Data Factory"), var.tags)
 }

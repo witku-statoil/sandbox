@@ -6,17 +6,17 @@ provider "azurerm" {
 }
 
 # Load from variables.tf
-resource "azurerm_resource_group" "bi_rg_prm" {
+data "azurerm_resource_group" "bi_rg_prm" {
 	name     = var.bi_resource_group_prm
-	location = var.bi_location_prm
-	tags = var.tags
+	#location = var.bi_location_prm
+	#tags = var.tags
 }
 
 # Landing Zone
 resource "azurerm_storage_account" "landing" {
 	name                		= "${var.bi_env_prefix}landing001${var.bi_env_suffix}"
-	resource_group_name 		= azurerm_resource_group.bi_rg_prm.name
-	location             		= azurerm_resource_group.bi_rg_prm.location 
+	resource_group_name 		= data.azurerm_resource_group.bi_rg_prm.name
+	location             		= data.azurerm_resource_group.bi_rg_prm.location 
 	
 	account_kind 				= "StorageV2"
 	account_tier         		= "Standard"
@@ -84,8 +84,8 @@ resource "azurerm_storage_container" "tlog-rejected" {
 # Archive Zone
 resource "azurerm_storage_account" "archive" {
 	name                		= "${var.bi_env_prefix}archive001${var.bi_env_suffix}"
-	resource_group_name 		= azurerm_resource_group.bi_rg_prm.name
-	location             		= azurerm_resource_group.bi_rg_prm.location 
+	resource_group_name 		= data.azurerm_resource_group.bi_rg_prm.name
+	location             		= data.azurerm_resource_group.bi_rg_prm.location 
 	
 	account_kind 				= "StorageV2"
 	account_tier         		= "Standard"
@@ -135,8 +135,8 @@ resource "azurerm_storage_container" "archive-clean-masked" {
 # Curated | Data Zone
 resource "azurerm_storage_account" "curated" {
 	name                		= "${var.bi_env_prefix}data001${var.bi_env_suffix}"
-	resource_group_name 		= azurerm_resource_group.bi_rg_prm.name
-	location             		= azurerm_resource_group.bi_rg_prm.location 
+	resource_group_name 		= data.azurerm_resource_group.bi_rg_prm.name
+	location             		= data.azurerm_resource_group.bi_rg_prm.location 
 	
 	account_kind 				= "StorageV2"
 	account_tier         		= "Standard"
@@ -202,8 +202,8 @@ resource "azurerm_storage_container" "stage" {
 # Analytical Sandbox Zone
 resource "azurerm_storage_account" "datascience" {
 	name                		= "${var.bi_env_prefix}datascience001${var.bi_env_suffix}"
-	resource_group_name 		= azurerm_resource_group.bi_rg_prm.name
-	location             		= azurerm_resource_group.bi_rg_prm.location 
+	resource_group_name 		= data.azurerm_resource_group.bi_rg_prm.name
+	location             		= data.azurerm_resource_group.bi_rg_prm.location 
 	
 	account_kind 				= "StorageV2"
 	account_tier         		= "Standard"
@@ -225,8 +225,8 @@ resource "azurerm_storage_account" "datascience" {
 # BI Logs
 resource "azurerm_storage_account" "logs" {
 	name                		= "${var.bi_env_prefix}logs001${var.bi_env_suffix}"
-	resource_group_name 		= azurerm_resource_group.bi_rg_prm.name
-	location             		= azurerm_resource_group.bi_rg_prm.location 
+	resource_group_name 		= data.azurerm_resource_group.bi_rg_prm.name
+	location             		= data.azurerm_resource_group.bi_rg_prm.location 
 	
 	account_kind 				= "StorageV2"
 	account_tier         		= "Standard"
@@ -248,8 +248,8 @@ resource "azurerm_storage_account" "logs" {
 # Backup Storage
 resource "azurerm_storage_account" "backup" {
 	name                		= "${var.bi_env_prefix}backup001${var.bi_env_suffix}"
-	resource_group_name 		= azurerm_resource_group.bi_rg_prm.name
-	location             		= azurerm_resource_group.bi_rg_prm.location 
+	resource_group_name 		= data.azurerm_resource_group.bi_rg_prm.name
+	location             		= data.azurerm_resource_group.bi_rg_prm.location 
 	
 	account_kind 				= "StorageV2"
 	account_tier         		= "Standard"
@@ -298,8 +298,8 @@ resource "azurerm_storage_container" "backups-other" {
 # External Vendors Zone
 resource "azurerm_storage_account" "vendors" {
 	name                		= "${var.bi_env_prefix}extshare001${var.bi_env_suffix}"
-	resource_group_name 		= azurerm_resource_group.bi_rg_prm.name
-	location             		= azurerm_resource_group.bi_rg_prm.location 
+	resource_group_name 		= data.azurerm_resource_group.bi_rg_prm.name
+	location             		= data.azurerm_resource_group.bi_rg_prm.location 
 	
 	account_kind 				= "StorageV2"
 	account_tier         		= "Standard"
@@ -330,8 +330,8 @@ resource "azurerm_storage_account" "vendors" {
 # Temporary Storage (Databrics 2 DWH)
 resource "azurerm_storage_account" "temp" {
 	name                		= "${var.bi_env_prefix}temp001${var.bi_env_suffix}"
-	resource_group_name 		= azurerm_resource_group.bi_rg_prm.name
-	location             		= azurerm_resource_group.bi_rg_prm.location 
+	resource_group_name 		= data.azurerm_resource_group.bi_rg_prm.name
+	location             		= data.azurerm_resource_group.bi_rg_prm.location 
 	
 	account_kind 				= "StorageV2"
 	account_tier         		= "Standard"
@@ -368,8 +368,8 @@ resource "azurerm_storage_container" "dwh" {
 # Public Zone - predominantly for sharing | exposing static content needed for e.g. Power BI
 resource "azurerm_storage_account" "public" {
 	name                		= "${var.bi_env_prefix}publicshare001${var.bi_env_suffix}"
-	resource_group_name 		= azurerm_resource_group.bi_rg_prm.name
-	location             		= azurerm_resource_group.bi_rg_prm.location 
+	resource_group_name 		= data.azurerm_resource_group.bi_rg_prm.name
+	location             		= data.azurerm_resource_group.bi_rg_prm.location 
 	
 	account_kind 				= "StorageV2"
 	account_tier         		= "Standard"

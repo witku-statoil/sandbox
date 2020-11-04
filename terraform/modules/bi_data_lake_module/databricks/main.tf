@@ -6,10 +6,10 @@ provider "azurerm" {
 }
 
 # Load from variables.tf
-resource "azurerm_resource_group" "bi_rg_prm" {
+data "azurerm_resource_group" "bi_rg_prm" {
 	name     = var.bi_resource_group_prm
-	location = var.bi_location_prm
-	tags = var.tags
+	#location = var.bi_location_prm
+	#tags = var.tags
 }
 
 resource "azurerm_databricks_workspace" "etl" {
